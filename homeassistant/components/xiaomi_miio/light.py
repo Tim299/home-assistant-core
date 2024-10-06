@@ -200,7 +200,8 @@ async def async_setup_entry(
             entities.append(entity)
             hass.data[DATA_KEY][host] = entity
 
-            # Handle ambient light entity separately if applicable
+            # The ambient light doesn't expose additional services.
+            # A hass.data[DATA_KEY] entry isn't needed.
             if model in MODELS_LIGHT_EYECARE:
                 entities.append(
                     XiaomiPhilipsEyecareLampAmbientLight(
